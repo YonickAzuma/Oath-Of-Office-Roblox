@@ -1,0 +1,2366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>OATH OF OFFICE</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+        <link rel="shortcut icon" href="https://nte.perfectworld.com/favicon.ico" />
+        <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <style>
+        html {
+    scroll-behavior: smooth;
+}
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400&display=swap');
+        body, h1, h2, h3, h4, h5, h6, p, li, span, a {
+    color: #ffffff; /* White text */
+    font-family: "Oswald"
+}
+    
+    .box-sizing-border-box, .box-sizing-border-box::before, .box-sizing-border-box::after {
+              margin: 0;
+              padding: 0;
+              box-sizing: border-box;
+            }
+            footer {
+              position: relative;
+              padding: 64px 0;
+              color: var(--clr-primary);
+              text-align: center;
+              overflow: hidden;
+            }
+            .footer-content {
+              position: relative;
+              z-index: 1;
+            }
+            .wave-animation {
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              width: 100%;
+              height: 200px;
+              fill: currentColor;
+            }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        /* tooltip-left */
+.tooltip-left {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    color: #87CEEB; /* Warna teks default */
+    transition: color 0.5s; /* Transisi warna teks */
+}
+
+.tooltip-left .tooltiptext {
+    visibility: hidden;
+    opacity: 0; /* Mulai dengan opacity 0 untuk animasi fade-in */
+    width: 250px;
+    background-color: white; /* Membuat latar belakang transparan */
+    color: #333; /* Warna teks di dalam box tooltip */
+    text-align: left;
+    position: absolute;
+    z-index: 1;
+    top: 50%; /* Muncul di tengah vertikal */
+    right: 100%; /* Pindah ke kiri */
+    transform: translateY(-50%) translateX(-10px); /* Menggeser ke kiri untuk animasi */
+    padding: 0; /* Menghapus padding */
+    border: none; /* Menghapus border */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Transisi untuk opacity dan transformasi */
+    overflow: hidden; /* Menghilangkan bagian gambar yang melebihi border */
+    display: flex;
+    flex-direction: column-reverse; /* Mengubah urutan menjadi gambar di atas, teks di bawah */
+}
+
+.tooltip-left:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1; /* Mengubah opacity menjadi 1 saat tooltip muncul */
+    transform: translateY(-50%) translateX(0); /* Kembalikan tooltip ke posisi aslinya */
+    z-index: 100;
+}
+
+.tooltip-left .tooltiptext p {
+    margin: 0; /* Mengatur margin untuk teks */
+    padding: 20px; /* Jarak dari tepi border */
+    border: 1px solid #ccc; /* Border untuk teks */
+    background-color: rgba(255, 255, 255, 0.8); /* Latar belakang untuk teks */
+    color: #333; /* Warna teks di dalam box tooltip */
+}
+
+.tooltip-left .tooltiptext img {
+    width: 100%; /* Membuat gambar memenuhi lebar box tooltip */
+    height: auto; /* Menjaga rasio aspek gambar */
+    display: block; /* Menghindari margin tambahan di bawah gambar */
+    border-radius: 0; /* Menghapus border radius untuk gambar */
+}
+
+
+        .tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    color: #87CEEB; /* Warna teks default */
+    transition: color 0.5s; /* Transisi warna teks */
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    opacity: 0; /* Mulai dengan opacity 0 untuk animasi fade-in */
+    width: 250px;
+    background-color: white; /* Membuat latar belakang transparan */
+    color: #333; /* Warna teks di dalam box tooltip */
+    text-align: left;
+    position: absolute;
+    z-index: 1;
+    top: 100%; /* Posisi awal tooltip di bawah elemen */
+    left: 50%;
+    transform: translateX(-50%) translateY(10px); /* Memindahkan tooltip ke bawah untuk animasi */
+    padding: 0; /* Menghapus padding */
+    border: none; /* Menghapus border */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Transisi untuk opacity dan transformasi */
+    overflow: hidden; /* Menghilangkan bagian gambar yang melebihi border */
+    display: flex;
+    flex-direction: column-reverse; /* Mengubah urutan menjadi gambar di atas, teks di bawah */
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1; /* Mengubah opacity menjadi 1 saat tooltip muncul */
+    transform: translateX(-50%) translateY(0); /* Mengembalikan tooltip ke posisi aslinya */
+    z-index: 100;
+}
+
+.tooltip.text-image .tooltiptext p {
+    margin: 0; /* Mengatur margin untuk teks */
+    padding: 20px; /* Jarak dari tepi border (ditingkatkan lebih banyak) */
+    border: 1px solid #ccc; /* Border untuk teks */
+    background-color: rgba(255, 255, 255, 0.8); /* Latar belakang untuk teks */
+    color: #333; /* Warna teks di dalam box tooltip */
+}
+
+.tooltip.text-image .tooltiptext img {
+    width: 100%; /* Membuat gambar memenuhi lebar box tooltip */
+    height: auto; /* Menjaga rasio aspek gambar */
+    display: block; /* Menghindari margin tambahan di bawah gambar */
+    border-radius: 0; /* Menghapus border radius untuk gambar */
+}
+
+
+.tooltip-right {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    color: #87CEEB; /* Warna teks default */
+    transition: color 0.5s; /* Transisi warna teks */
+}
+
+.tooltip-right .tooltiptext {
+    visibility: hidden;
+    opacity: 0; /* Mulai dengan opacity 0 untuk animasi fade-in */
+    width: 250px;
+    background-color: white; /* Membuat latar belakang transparan */
+    color: #333; /* Warna teks di dalam box tooltip */
+    text-align: left;
+    position: absolute;
+    z-index: 1;
+    top: 50%; /* Muncul di tengah vertikal */
+    left: 100%; /* Pindah ke kanan */
+    transform: translateY(-50%) translateX(10px); /* Menggeser ke kanan untuk animasi */
+    padding: 0; /* Menghapus padding */
+    border: none; /* Menghapus border */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Transisi untuk opacity dan transformasi */
+    overflow: hidden; /* Menghilangkan bagian gambar yang melebihi border */
+    display: flex;
+    flex-direction: column-reverse; /* Mengubah urutan menjadi gambar di atas, teks di bawah */
+}
+
+.tooltip-right:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1; /* Mengubah opacity menjadi 1 saat tooltip muncul */
+    transform: translateY(-50%) translateX(0); /* Kembalikan tooltip ke posisi aslinya */
+    z-index: 100;
+}
+
+.tooltip-right .tooltiptext p {
+    margin: 0; /* Mengatur margin untuk teks */
+    padding: 20px; /* Jarak dari tepi border */
+    border: 1px solid #ccc; /* Border untuk teks */
+    background-color: rgba(255, 255, 255, 0.8); /* Latar belakang untuk teks */
+    color: #333; /* Warna teks di dalam box tooltip */
+}
+
+
+
+.tooltip-right .tooltiptext img {
+    width: 100%; /* Membuat gambar memenuhi lebar box tooltip */
+    height: auto; /* Menjaga rasio aspek gambar */
+    display: block; /* Menghindari margin tambahan di bawah gambar */
+    border-radius: 0; /* Menghapus border radius untuk gambar */
+}
+
+        .tooltip-right22 {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    color: #87CEEB; /* Warna teks default */
+    transition: color 0.5s; /* Transisi warna teks */
+}
+
+
+.tooltip-right22 .tooltiptext {
+    visibility: hidden;
+    opacity: 0;
+    width: 450px;
+    background-color: white;
+    color: #333;
+    text-align: left;
+    position: absolute;
+    z-index: 1;
+    top: 100%; /* Tooltip muncul di bawah elemen */
+    left: 50%; /* Pusatkan tooltip horizontal terhadap elemen */
+    transform: translateX(-50%) translateY(10px); /* Pindahkan tooltip sedikit ke bawah untuk animasi */
+    padding: 0;
+    border: none;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    overflow: hidden;
+    display: flex;
+}
+
+.tooltip-right22:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-50%) translateY(0); /* Tooltip kembali ke posisi normal */
+    z-index: 100;
+}
+
+
+.tooltip-right22 .tooltiptext {
+    flex-direction: row; /* Mengatur elemen secara horizontal */
+}
+
+.tooltip-right22 .tooltiptext p {
+    margin: 0;
+    padding: 10px; /* Jarak dalam teks */
+    border: 1px solid #ccc; /* Tambahkan border */
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #333;
+    font-size: 14px; /* Atur ukuran font agar tidak terlalu besar */
+    line-height: 1.4; /* Tinggi baris untuk keterbacaan */
+    max-height: 300px; /* Batasi tinggi maksimum */
+    align-items: center; /* Ratakan teks secara vertikal */
+    width: 100%;
+}
+
+.tooltip-right22 .tooltiptext img {
+    width: 100px; /* Lebar tetap untuk gambar */
+    height: auto; /* Menjaga rasio aspek */
+    border-radius: none; /* Tambahkan radius jika ingin sudut gambar membulat */
+    align-items: center; /* Ratakan teks secara vertikal */
+}
+
+
+.tooltip-right-new {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    color: #87CEEB; /* Warna teks default */
+    transition: color 0.5s; /* Transisi warna teks */
+}
+
+.tooltip-right-new .tooltiptext {
+    visibility: hidden;
+    opacity: 0;
+    width: 450px;
+    background-color: white;
+    color: #333;
+    text-align: left;
+    position: absolute;
+    z-index: 1;
+    top: 50%; /* Tooltip muncul di tengah elemen secara vertikal */
+    left: 100%; /* Tooltip muncul di sebelah kanan elemen */
+    transform: translateX(10px) translateY(-50%); /* Geser tooltip sedikit ke kanan dan pusatkan vertikal */
+    padding: 0;
+    border: none;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    overflow: hidden;
+    display: flex;
+}
+
+.tooltip-right-new:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0) translateY(-50%); /* Kembalikan ke posisi normal */
+    z-index: 100;
+}
+
+.tooltip-right-new .tooltiptext {
+    flex-direction: row; /* Mengatur elemen secara horizontal */
+}
+
+.tooltip-right-new .tooltiptext p {
+    margin: 0;
+    padding: 10px; /* Jarak dalam teks */
+    border: 1px solid #ccc; /* Tambahkan border */
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #333;
+    font-size: 14px; /* Atur ukuran font agar tidak terlalu besar */
+    line-height: 1.4; /* Tinggi baris untuk keterbacaan */
+    max-height: 300px; /* Batasi tinggi maksimum */
+    align-items: center; /* Ratakan teks secara vertikal */
+    width: 100%;
+}
+
+.tooltip-right-new .tooltiptext img {
+    width: 100px; /* Lebar tetap untuk gambar */
+    height: auto; /* Menjaga rasio aspek */
+    border-radius: none; /* Tambahkan radius jika ingin sudut gambar membulat */
+    align-items: center; /* Ratakan teks secara vertikal */
+}
+
+
+
+
+        /* ANIMASI UNTUK PERGERAKAN LAYAR */
+        @keyframes move-background {
+            from {
+                transform: translate3d(0px, 0px, 0px);
+            }
+            to { 
+                transform: translate3d(1000px, 0px, 0px);
+            }
+        }
+
+        /* BACKGROUND FIXED DI BODY */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            overflow: hidden;
+        }
+
+        /* Elemen visual (stars, twinkling, clouds, fog) diposisikan sebagai background */
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            z-index: -1; /* Pastikan background ada di belakang */
+            overflow: hidden;
+        }
+
+        .stars22 {
+            background: black url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png') repeat;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 0;
+        }
+
+        .twinkling {
+            width: 10000px;
+            height: 100%;
+            background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png') repeat;
+            background-size: 1000px 1000px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            z-index: 1;
+            animation: move-background 70s linear infinite;
+        }
+
+        .clouds {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: transparent url('https://wolf.drjm.co.uk/nightsky/clouds.png') repeat top center;
+            z-index: 2;
+            height: 150%;
+            animation: cloudsFrames 150s linear infinite;
+        }
+
+        @keyframes cloudsFrames {
+            from { background-position: 0 0; }
+            to { background-position: 10000px 0; }
+        }
+
+        .fogContainer {
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            z-index: 3;
+            overflow: hidden;
+        }
+
+        .fog {
+            position: absolute;
+            left: -50%;
+            top: -30%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(-5deg, rgba(0,0,0,0) 0%, rgba(255,255,255,0.1) 40%, rgba(116,89,1,0.15) 45%, rgba(139,132,91,0.15) 55%, rgba(0,0,0,0) 70%);
+            animation: fogFrames 30s linear infinite alternate;
+            opacity: 0.4;
+        }
+
+        .fog:nth-child(2) {
+            top: -10%;
+            left: -30%;
+            width: 150%;
+            height: 150%;
+            opacity: 0.5;
+            animation-duration: 10s;
+        }
+
+        .fog:nth-child(3) {
+            top: -20%;
+            left: -40%;
+            width: 180%;
+            height: 180%;
+            opacity: 0.6;
+            animation-duration: 20s;
+        }
+
+        .fog:nth-child(4) {
+            top: -15%;
+            left: -20%;
+            width: 160%;
+            height: 160%;
+            opacity: 0.7;
+            animation-duration: 50s;
+        }
+
+        @keyframes fogFrames {
+            0% { transform: none; }
+            50% { transform: scaleY(0.6) rotate(-10deg); }
+            100% { transform: none; }
+        }
+
+        
+        /* Tambahkan gaya untuk konten di atas background */
+        .content {
+            position: relative;
+            z-index: 5; /* Pastikan konten ada di atas background */
+            color: white;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+.star22 {
+  width: 1px;
+  height: 1px;
+  background: transparent;
+  box-shadow: shadow;
+}
+
+.link {
+    text-decoration: none;
+    color: #868282; /* Warna teks merah */
+    transition: color 0.3s;
+    font-family: Oswald;
+}
+
+.link:hover {
+    color: white; /* Warna teks default saat hover di mode terang */
+}
+
+        #map {
+            height: 600px;
+            width: 100%;
+        }
+        .popup-content img {
+            width: 100%;
+            height: auto;
+        }
+
+                .small-text {
+            font-size: 0.9em; /* Membuat ukuran font lebih kecil dari h6 */
+        }
+
+                .highlight {
+            font-weight: bold; /* Membuat teks tebal */
+            color: #a9a9a9; /* Warna abu-abu lembut */
+        }
+
+
+       .game-card {
+            background-color: #2e2e2e;
+            overflow: hidden;
+            width: 350px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        /* Kontainer Slider */
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 200px;
+        }
+
+        .slider-container img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        /* Gambar aktif */
+        .slider-container img.active {
+            opacity: 1;
+            z-index: 1;
+        }
+
+        /* Kontainer isi */
+        .game-card-content {
+            padding: 15px;
+            text-align: left;
+        }
+
+        /* Judul game */
+        .game-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 0 5px;
+        }
+
+        /* Subjudul game */
+        .game-subtitle {
+            font-size: 0.9rem;
+            color: #a0a0a0;
+            margin: 0 0 15px;
+        }
+
+        /* Tombol Play */
+        .play-button {
+            display: block;
+            width: 100%;
+            padding: 10px 0;
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .play-button:hover {
+            background-color: #2563eb;
+            transform: scale(1.02);
+        }
+
+        .play-button:active {
+            background-color: #1e3a8a;
+            transform: scale(0.98);
+        }
+
+        /* Bagian bawah (interaksi) */
+        .game-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            border-top: 1px solid #3a3a3a;
+        }
+
+        .game-footer div {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Ikon interaksi */
+        .game-footer i {
+            margin-right: 5px;
+            font-size: 1.2rem;
+        }
+
+        .game-footer span {
+            font-size: 0.9rem;
+            color: #a0a0a0;
+        }
+
+        /* Ikon klik */
+        .game-footer .icon {
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .game-footer .icon:hover {
+            color: #ffffff;
+        }
+
+
+
+                /* Sidebar Styles */
+                .sidebar {
+    position: fixed;
+    top: 60px; /* Tinggi navbar W3Schools biasanya 56px */
+    left: 0;
+    width: 300px;
+    height: calc(100% - 60px); /* Sisakan tinggi navbar */
+    background: rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+    transform: translateX(-100%);
+    transition: transform 0.4s ease-in-out;
+    z-index: 999;
+}
+    
+        
+        .sidebar:hover {
+    background: rgba(0, 0, 0, 0.5); /* Warna sedikit lebih gelap saat hover */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Sedikit lebih tegas */
+}
+
+        .sidebar.open {
+            transform: translateX(0);
+        }
+
+        .sidebar-header {
+            padding: 5px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #333;
+            background-color: #ddd;
+            border-bottom: 1px solid #ccc;
+            text-align: center;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar ul li {
+            padding: 10px 20px;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .sidebar ul li a:hover {
+            color: #84c0ff;
+        }
+
+        /* Overlay Background for Smooth Effect */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 900;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
+        }
+
+        .overlay.show {
+            display: block;
+            opacity: 1;
+        }
+
+        .custom-slider-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            aspect-ratio: 3 / 2;
+            overflow: hidden;
+        }
+
+        .custom-slider-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .custom-slider-container img.custom-active {
+            opacity: 1;
+        }
+
+        .custom-slider-text {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            transition: opacity 1s ease-in-out;
+            opacity: 0;
+        }
+
+        .custom-slider-text.custom-active {
+            opacity: 1;
+        }
+
+            .w3-top {
+        position: fixed;
+        width: 100%;
+        z-index: 999; /* Agar navbar tetap berada di atas */
+    }
+
+    @media (max-width: 768px) {
+    img {
+        width: 100%;
+    }
+    }
+
+    img {
+    width: 100%;
+    height: auto;
+}
+
+.w3-containerss a {
+      text-decoration: none; /* Hilangkan garis bawah */
+    }
+
+    .meteor {
+  background-image: linear-gradient(90deg, #fff, rgba(255, 255, 255, 0));
+  opacity: 1;
+  transform: rotate(-45deg);
+  width: 300px;
+}
+
+.meteor:before {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  box-shadow: 0 0 15px 3px #fff;
+  content: "";
+  height: 5px;
+  margin-top: -2px;
+  position: fixed;
+  width: 4px;
+}
+
+.meteor, .stars {
+  height: 1px;
+  position: fixed;
+  z-index: -1;
+}
+
+
+        .tab-navigation {
+            display: flex;
+            background-color: black;
+        }
+
+        .tab-item {
+            flex: 1;
+            padding: 12px;
+            text-align: center;
+            color: #ffffff;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .tab-item.active {
+            background-color: #5a9cf8;
+        }
+
+        .tab-content {
+            padding: 20px;
+            display: none; /* Sembunyikan semua konten */
+        }
+
+        .tab-content.active {
+            display: block; /* Tampilkan konten aktif */
+        }
+
+        .tab-image {
+    width: 100%; /* Membuat gambar mengisi lebar penuh */
+    height: auto; /* Menjaga rasio gambar tetap proporsional */
+    object-fit: cover; /* Menyesuaikan gambar ke dalam area kontainer tanpa mengubah rasio */
+    display: block; /* Menghilangkan margin atau padding ekstra */
+    margin: 0; /* Menghilangkan margin */
+    padding: 0; /* Menghilangkan padding */
+}
+
+
+.invisible-box {
+    background: rgba(0, 0, 0, 0.4); /* Warna transparan lebih gelap */
+    padding: 30px;
+    color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Bayangan lembut */
+    z-index: 100%;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Border tipis dan halus */
+    transition: all 0.3s ease; /* Efek transisi halus */
+}
+
+.invisible-box:hover {
+    background: rgba(0, 0, 0, 0.5); /* Warna sedikit lebih gelap saat hover */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Sedikit lebih tegas */
+    border: 1px solid rgba(255, 255, 255, 0.4); /* Border lebih terlihat */
+}
+
+
+.invisible22-box {
+    background: rgba(0, 0, 0, 0.4); /* Warna transparan lebih gelap */
+    color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Bayangan lembut */
+    z-index: 100%;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Border tipis dan halus */
+    transition: all 0.3s ease; /* Efek transisi halus */
+}
+
+.invisible22-box:hover {
+    background: rgba(0, 0, 0, 0.5); /* Warna sedikit lebih gelap saat hover */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Sedikit lebih tegas */
+    border: 1px solid rgba(255, 255, 255, 0.4); /* Border lebih terlihat */
+}
+
+.invisible44-box {
+    background: rgba(0, 0, 0, 0.4); /* Warna transparan lebih gelap */
+    color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Bayangan lembut */
+    z-index: 100%;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Border tipis dan halus */
+    transition: all 0.3s ease; /* Efek transisi halus */
+}
+
+.invisible44-box:hover {
+    background: rgba(0, 0, 0, 0.5); /* Warna sedikit lebih gelap saat hover */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Sedikit lebih tegas */
+    border: 1px solid rgba(255, 255, 255, 0.4); /* Border lebih terlihat */
+}
+
+.box-header2 {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Bayangan lembut */
+            padding: 10px 15px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2); /* Border tipis dan halus */
+            margin: 20px auto;
+            position: relative;
+        }
+
+        .box-header2:hover{
+            background: rgba(0, 0, 0, 0.5); /* Warna sedikit lebih gelap saat hover */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Sedikit lebih tegas */
+    border: 1px solid rgba(255, 255, 255, 0.4); /* Border lebih terlihat */
+
+        }
+
+        .search {
+        display: flex;
+        align-items: center;
+    }
+
+    .searchTerm {
+        width: 200px;
+        padding: 5px;
+        height: 36px;
+        border: 3px solid #000000;
+        border-right: none;
+        outline: none;
+        color: #9DBFAF;
+    }
+
+    .searchTerm:focus {
+        color: #000000;
+    }
+
+    .searchButton {
+        width: 40px;
+        height: 36px;
+        border: 1px solid #000000;
+        background: #000000;
+        text-align: center;
+        color: white;
+        cursor: pointer;
+        font-size: 18px;
+    }
+
+    .search-container {
+        position: relative;
+        z-index: 1000; /* Ensure dropdown appears above navbar */
+    }
+
+    /* Dropdown Styles */
+    .dropdown-list {
+        position: absolute;
+        top: 45px;  /* Adjust based on the height of your input */
+        left: 0;
+        width: 100%;
+        max-height: 200px;
+        overflow-y: auto;
+        background-color: rgb(0, 0, 0);
+        border: 1px solid #ccc;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: none; /* Initially hidden */
+        z-index: 9999; /* Ensure it's above other elements like the navbar */
+    }
+
+    .dropdown-list li {
+        padding: 8px;
+        cursor: pointer;
+    }
+
+    .dropdown-list li:hover {
+        background-color: #000000;
+    }
+
+    .w3-bar2 {
+  width: 100%;
+  
+}
+
+.w3-center2 .w3-bar2 {
+
+  width: auto;
+}
+
+.w3-bar2 .w3-bar-item2 {
+  padding: 8px 16px;
+  float: left;
+  width: auto;
+  border: none;
+  display: block;
+  outline: 0;
+}
+
+.w3-bar2 .w3-dropdown-hover, 
+.w3-bar2 .w3-dropdown-click {
+  position: static;
+  float: left;
+}
+
+.w3-bar2 .w3-button {
+  white-space: normal;
+}
+
+.w3-top2,
+.w3-bottom {
+  position: fixed;
+  z-index: 1000;
+}
+
+.w3-top2 {
+  top: 0;
+}
+
+.w3-bottom {
+  bottom: 0;
+}
+
+    
+.w3-bar .w3-button {
+      padding: 16px;
+    }
+    
+    /* Lebar scrollbar */
+::-webkit-scrollbar {
+    width: 8px; /* Lebar scrollbar */
+    height: 8px; /* Tinggi scrollbar untuk elemen horizontal */
+}
+
+/* Track (latar belakang scrollbar) */
+::-webkit-scrollbar-track {
+    background: #f7f5f5; /* Warna background track (abu-abu terang) */
+}
+
+/* Handle (bagian yang digeser) */
+::-webkit-scrollbar-thumb {
+    background: #bfbfbf; /* Warna handle (abu-abu sedang) */
+    transition: background 0.3s ease;
+}
+
+/* Efek hover saat kursor di atas scrollbar */
+::-webkit-scrollbar-thumb:hover {
+    background: #a0a0a0; /* Warna handle lebih gelap saat di-hover */
+}
+
+.invisible33-box {
+    background: rgba(0, 0, 0, 0.1); /* Warna transparan lebih gelap */
+    color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Bayangan lembut */
+    z-index: 9999;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Border tipis dan halus */
+    transition: all 0.3s ease; /* Efek transisi halus */
+}
+
+.invisible33-box:hover {
+    background: rgba(0, 0, 0, 0.1); /* Warna sedikit lebih gelap saat hover */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Sedikit lebih tegas */
+    border: 1px solid rgba(255, 255, 255, 0.4); /* Border lebih terlihat */
+}
+        
+  </style>
+</head>
+
+<body> 
+     <!-- BACKGROUND -->
+<div class="background-container">
+    <!-- Stars -->
+    <div class="stars22"></div>
+    <!-- Twinkling Stars -->
+    <div class="twinkling"></div>
+    <!-- Clouds -->
+    <div class="clouds"></div>
+    <!-- Fog -->
+    <div class="fogContainer">
+      <div class="fog"></div>
+      <div class="fog"></div>
+      <div class="fog"></div>
+      <div class="fog"></div>
+      <div class="fog"></div>
+    </div>
+</div>
+
+<!-- KONTEN YANG DITAMBAHKAN -->
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+    <div class="w3-bar w3-white w3-card">
+      <!-- Right-sided navbar links -->
+      <div class="w3-right w3-hide-small">
+        <a href="#about" class="w3-bar-item w3-button">ABOUT</a>
+        <a href="Main_Web_Oath_Of_Office.html" class="w3-bar-item w3-button"><i class="fa fa-user"></i> MAIN PLACE</a>
+        <a href="#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>
+        <a class="w3-bar-item w3-button w3-hover-black w3-left" href="javascript:void(0);" onclick="toggleSidebar()">
+            <i class="fa fa-bars"></i>
+        </a>
+      </div>
+      <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+  
+      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+  </div>
+  
+  <div class="w3-top2">
+    <div class="w3-bar2">
+            <!-- Search Input -->
+            <div class="search-container w3-bar-item2">
+                <div class="search">
+                    <input autocomplete="off" type="text" id="searchInput" class="searchTerm" placeholder="What ya want?" onkeyup="filterItems()">
+                    <button type="submit" class="searchButton">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+                <ul id="dropdown" id="myNavbar" class="dropdown-list">
+                    <!-- Dropdown items will be dynamically inserted here -->
+                </ul>
+            </div>
+        </div>
+</div>
+  
+  <!-- Sidebar on small screens when clicking the menu icon -->
+  <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+    <a href="Main_Web_Oath_Of_Office.html" onclick="w3_close()" class="w3-bar-item w3-button"><i class="fa fa-user"></i> MAIN PLACE</a>
+    <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
+    <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
+    <br>
+    <a >
+        <a>
+        <div class="sidebar-header invisible33-box">Table of Contents</div>
+        <ul>
+            <li><a href="#1.1">1.1 <a href="#1.1" class="link">Information</a></a></li>
+            <li><a href="#1.2">1.2 <a href="#1.2" class="link">Selection Process</a></a></li>
+            <li><a href="#1.3">1.3 <a href="#1.3" class="link">Daily Schedule</a></a>
+                <ul>
+                    <li><a href="#1.4">1.4 <a href="#1.4" class="link">White House Meeting</a></a></li>
+                    <li><a href="#1.5">1.5 <a href="#1.5" class="link">Leadership Meeting</a></a></li>
+                    <li><a href="#1.6">1.6 <a href="#1.6" class="link">Cabinet Meeting</a></a></li>
+                    <li><a href="#1.7">1.7 <a href="#1.7" class="link">Free Time</a></a></li>
+                    <li><a href="#1.8">1.8 <a href="#1.8" class="link">Social Hour</a></a></li>
+                </ul>
+            </li>
+                    <li><a href="#1.9">1.9 <a href="#1.9" class="link">Power and Duties</a></a></li>
+                    <li><a href="#1.10">1.10 <a href="#1.10" class="link">Impeachment</a></a></li>
+                    <li><a href="#1.11">1.11 <a href="#1.11" class="link">Update History</a></a></li>
+        </ul></a><br>
+        <div class="sidebar-header invisible33-box">Link sites</div>
+        <div class="w3-margin w3-black">
+            <div class="w3-container">
+                <p>
+                    <a href="President_USA.html" class="w3-tag w3-light-grey w3-small w3-margin-bottom">President of the United States</a>
+                    <a href="Vice_President_USA.html" class="w3-tag w3-light-grey w3-small w3-margin-bottom">Vice President</a>
+                    <a href="Speaker_Of_House.html" class="w3-tag w3-light-grey w3-small w3-margin-bottom">Speaker of the House</a>
+                    <a href="President_Pro_Tempore.html" class="w3-tag w3-light-grey w3-small w3-margin-bottom">President Pro Tempore</a>
+                    <a href="WHite_House_Chief_Of_Staff.html" class="w3-tag w3-light-grey w3-small w3-margin-bottom">White House Chief of Staff</a>
+                </p>
+                <p>
+                    <a href="WhiteHouse_Staff.html" class="w3-tag w3-light-grey w3-small w3-margin-bottom">White House Staff</a>
+                    <a href="Press_Roles.html" class="w3-tag w3-light-grey w3-small w3-margin-bottom">Press Roles</a>
+                    <a href="Party_Staff.html" class="w3-tag w3-light-grey w3-small w3-margin-bottom">Party Staff</a>
+                    <a href="Federal_Reserve.html" class="w3-tag w3-light-grey w3-small w3-margin-bottom">Federal Reserve</a>
+                    <a href="Dept_Agriculture.html" class="w3-tag w3-light-grey w3-small w3-margin-bottom">Department of Agriculture (USA)</a>
+                </p>
+                <p>
+                    <a href="Dept_Commerce.html" class="w3-tag w3-light-grey w3-small w3-margin-bottom">Department of Commerce (USA)</a>
+                    <a href="Dept_Defense.html" class="w3-tag w3-light-grey w3-small w3-margin-bottom">Department of Defense (USA)</a>
+                    <a href="Dept_Education.html" class="w3-tag w3-light-grey w3-small w3-margin-bottom">Department of Education (USA)</a>
+                    <a href="Dept_Homeland_Security.html" class="w3-tag w3-light-grey w3-small w3-margin-bottom">Department of Homeland Security (USA)</a>
+                    <a href="Dept_Justice.html" class="w3-tag w3-light-grey w3-small w3-margin-bottom">Department of Justice (USA)</a>
+                </p>
+                <p>
+                    <a href="Dept_State.html" class="w3-tag w3-light-grey w3-small w3-margin-bottom">Department of State (USA)</a>
+                    <a href="Dept_Interior.html" class="w3-tag w3-light-grey w3-small w3-margin-bottom">Department of the Interior (USA)</a>
+                    <a href="Dept_Treasury.html" class="w3-tag w3-light-grey w3-small w3-margin-bottom">Department of the Treasury (USA)</a>
+                    <a href="Senate.html" class="w3-tag w3-light-grey w3-small w3-margin-bottom">Senate</a>
+                    <a href="House_of_Representatives.html" class="w3-tag w3-light-grey w3-small w3-margin-bottom">The House of Representatives</a>
+                </p>
+                <p>
+                    <a href="Executive_Branch.html" class="w3-tag w3-light-grey w3-small w3-margin-bottom">Executive Branch</a>
+                    <a href="Cabinet.html" class="w3-tag w3-light-grey w3-small w3-margin-bottom">Cabinet</a>
+                    <a href="National_Security_Advisor.html" class="w3-tag w3-light-grey w3-small w3-margin-bottom">National Security Advisor</a>
+                    <a href="Press_Secretary.html" class="w3-tag w3-light-grey w3-small w3-margin-bottom">Press Secretary</a>
+                    <a href="State_of_Senate.html" class="w3-tag w3-light-grey w3-small w3-margin-bottom">State of Senate</a>
+                </p>
+            </div>
+        </div>
+    </a>
+  </nav>
+
+<!-- w3-content defines a container for fixed size centered content, 
+and is wrapped around the whole page content, except for the footer in this example -->
+<div class="w3-content" style="max-width:1600px">
+
+    <!-- Header -->
+    <header class="w3-container w3-center w3-padding-48">
+
+    </header>
+
+    
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+    <div class="sidebar-header invisible3-box">Table of Contents</div>
+    <ul>
+        <li><a href="#1.1">1.1 <a href="#1.1" class="link">Information</a></a></li>
+        <li><a href="#1.2">1.2 <a href="#1.2" class="link">Selection Process</a></a></li>
+        <li><a href="#1.3">1.3 <a href="#1.3" class="link">Daily Schedule</a></a>
+            <ul>
+                <li><a href="#1.4">1.4 <a href="#1.4" class="link">White House Meeting</a></a></li>
+                <li><a href="#1.5">1.5 <a href="#1.5" class="link">Leadership Meeting</a></a></li>
+                <li><a href="#1.6">1.6 <a href="#1.6" class="link">Cabinet Meeting</a></a></li>
+                <li><a href="#1.7">1.7 <a href="#1.7" class="link">Free Time</a></a></li>
+                <li><a href="#1.8">1.8 <a href="#1.8" class="link">Social Hour</a></a></li>
+            </ul>
+        </li>
+                <li><a href="#1.9">1.9 <a href="#1.9" class="link">Power and Duties</a></a></li>
+                <li><a href="#1.10">1.10 <a href="#1.10" class="link">Impeachment</a></a></li>
+                <li><a href="#1.11">1.11 <a href="#1.11" class="link">Update History</a></a></li>
+    </ul><br>
+
+    <div class="sidebar-header invisible33-box">Link sites</div>
+    <div class="w3-margin w3-black">
+        <div class="w3-container">
+            <p>
+                <a href="President_USA.html" class="w3-tag w3-light-grey w3-small w3-margin-bottom">President of the United States</a>
+                <a href="Vice_President_USA.html" class="w3-tag w3-light-grey w3-small w3-margin-bottom">Vice President</a>
+                <a href="Speaker_Of_House.html" class="w3-tag w3-light-grey w3-small w3-margin-bottom">Speaker of the House</a>
+                <a href="President_Pro_Tempore.html" class="w3-tag w3-light-grey w3-small w3-margin-bottom">President Pro Tempore</a>
+                <a href="WHite_House_Chief_Of_Staff.html" class="w3-tag w3-light-grey w3-small w3-margin-bottom">White House Chief of Staff</a>
+            </p>
+            <p>
+                <a href="WhiteHouse_Staff.html" class="w3-tag w3-light-grey w3-small w3-margin-bottom">White House Staff</a>
+                <a href="Press_Roles.html" class="w3-tag w3-light-grey w3-small w3-margin-bottom">Press Roles</a>
+                <a href="Party_Staff.html" class="w3-tag w3-light-grey w3-small w3-margin-bottom">Party Staff</a>
+                <a href="Federal_Reserve.html" class="w3-tag w3-light-grey w3-small w3-margin-bottom">Federal Reserve</a>
+                <a href="Dept_Agriculture.html" class="w3-tag w3-light-grey w3-small w3-margin-bottom">Department of Agriculture (USA)</a>
+            </p>
+            <p>
+                <a href="Dept_Commerce.html" class="w3-tag w3-light-grey w3-small w3-margin-bottom">Department of Commerce (USA)</a>
+                <a href="Dept_Defense.html" class="w3-tag w3-light-grey w3-small w3-margin-bottom">Department of Defense (USA)</a>
+                <a href="Dept_Education.html" class="w3-tag w3-light-grey w3-small w3-margin-bottom">Department of Education (USA)</a>
+                <a href="Dept_Homeland_Security.html" class="w3-tag w3-light-grey w3-small w3-margin-bottom">Department of Homeland Security (USA)</a>
+                <a href="Dept_Justice.html" class="w3-tag w3-light-grey w3-small w3-margin-bottom">Department of Justice (USA)</a>
+            </p>
+            <p>
+                <a href="Dept_State.html" class="w3-tag w3-light-grey w3-small w3-margin-bottom">Department of State (USA)</a>
+                <a href="Dept_Interior.html" class="w3-tag w3-light-grey w3-small w3-margin-bottom">Department of the Interior (USA)</a>
+                <a href="Dept_Treasury.html" class="w3-tag w3-light-grey w3-small w3-margin-bottom">Department of the Treasury (USA)</a>
+                <a href="Senate.html" class="w3-tag w3-light-grey w3-small w3-margin-bottom">Senate</a>
+                <a href="House_of_Representatives.html" class="w3-tag w3-light-grey w3-small w3-margin-bottom">The House of Representatives</a>
+            </p>
+            <p>
+                <a href="Executive_Branch.html" class="w3-tag w3-light-grey w3-small w3-margin-bottom">Executive Branch</a>
+                <a href="Cabinet.html" class="w3-tag w3-light-grey w3-small w3-margin-bottom">Cabinet</a>
+                <a href="National_Security_Advisor.html" class="w3-tag w3-light-grey w3-small w3-margin-bottom">National Security Advisor</a>
+                <a href="Press_Secretary.html" class="w3-tag w3-light-grey w3-small w3-margin-bottom">Press Secretary</a>
+                <a href="State_of_Senate.html" class="w3-tag w3-light-grey w3-small w3-margin-bottom">State of Senate</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+        <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+    <!-- Image header -->
+    <header class="w3-display-container w3-wide" id="home">
+        <div class="w3-display-left w3-padding-large"></div>
+    </header>
+    <br><br><br><br>
+
+    <!-- Grid -->
+    <div class="w3-row w3-padding">
+
+<!-- Blog entries -->
+<div class="invisible-box w3-col l8 s12" id="about">
+
+    <!-- Main Page Of OOO -->
+  <div class="w3-container w3-margin w3-padding-large">
+    <div class="w3-center">
+      <h3>OATH OF OFFICE: PRESIDENT UNITED OF STATE</h3>
+      <h5>Title description, <span class="w3-opacity">December 16, 2024</span></h5>
+    </div><br><br>
+
+    <div class="w3-justify">
+      <h3 class="link" id="1.1">Information</h3>
+      <hr>
+      <span>
+        The <strong class="link">President of the United States (POTUS)</strong> is the highest role in Oath of Office: United States and the head of state and government of the nation. 
+        It is the most powerful role in the game, able to pass nationwide laws and chairs Cabinet meetings. Its main role is to pass laws and engage in roleplay with its department ministers. 
+        The role was added in the Initial Release (v1.0).
+      </span>       
+    </div>
+    <hr>
+  </div>
+
+
+<!-- Information -->
+<div class="w3-container w3-margin w3-padding-large">        
+    <div class="w3-justify"> 
+        <h3 id="1.2" class="link">Selection Process</h3>
+        <hr>
+        <span>The selection process consists of two stages: the 
+            <span class="tooltip-right"><strong>Presidential Primarie</strong>
+                <span class="tooltiptext">
+                    <p><strong>Presidential Primaries</strong> are a series of state-level elections held by political parties in the United States to select their nominee for the presidential election. In these primaries, registered voters of each party vote for their preferred candidate, and delegates are awarded based on the results.The results of the primaries help determine which candidates will compete in the national party conventions, where the final presidential nominee is selected.</p>
+                    <img src="https://i.pinimg.com/736x/2e/0b/b4/2e0bb40382c81117d059eeed6731c98f.jpg" alt="Sumber Daya Alam">
+                </span>
+            </span> and the 
+            <span class="tooltip-left"><strong>Presidential election</strong>
+                <span class="tooltiptext">
+                    <p>The <strong>Presidential Election</strong> in the United States is held every four years, where voters choose the President and Vice President. Citizens in each state vote for electors who then vote in the <strong>Electoral College</strong> to officially select the president. Each state's electoral votes are generally awarded based on the popular vote in that state. Candidates typically campaign leading up to the election, engaging in debates, rallies, and other activities to gain voter support. The candidate with a majority of electoral votes (at least 270 out of 538) wins the election. If no candidate receives a majority, the decision goes to the House of Representatives to choose the president.</p>
+                    <img src="https://i.pinimg.com/736x/fd/e0/4b/fde04b04f0817b8df9938b8ed160b441.jpg" alt="Sumber Daya Alam">
+                </span>
+            </span>.</span>
+        <ul>
+            <li>
+                <p><strong class="link">Presidential Primaries</strong>: This occurs on Day 2, where each political party nominates a candidate for the presidency. The goal is to select the candidate who will represent each party in the general election. The character with the most prestige (based on their tenure in the server) will be chosen as the party's candidate. If the incumbent President is running for re-election, they will automatically be selected as the candidate.</p>
+            </li>
+            <li>
+                <p><strong class="link">Presidential Election</strong>: After the primaries, the general election begins, where the two candidates, one from each party, compete against each other. If the President is outgoing (after serving two terms), they will face the challenger from the opposing party. To win the election, a candidate must secure 270 electoral votes.</p>
+            </li>
+        </ul>
+        <p>To gain electoral votes, a candidate needs to win a higher percentage of votes than their opponent in each state. For example, if Candidate A wins 50% of the vote in Appalachia and Candidate B only gets 48%, Candidate A will receive all 66 electoral votes from that state. Candidates can sway voters by passing laws that benefit specific groups in each state. However, the District of Columbia (DC), which is made up of in-game players, does not have electoral votes.</p>
+        <p>You can find information on which groups make up each state in the "State Information" tab. The election takes place on the evening of Day 4. Candidates may attend their party's rally to connect with voters. The candidate with the most votes wins the election and becomes the new President.</p>
+        <p><em class="link">Note</em>: Characters in the <strong class="link">independent</strong> party are not eligible to run for President.</p>
+        
+        <span>The term length for a president is 4 in-game days, each day lasting 15 minutes, totaling 60 minutes in a term. A president can serve <strong class="link">two terms</strong> if reelected, but will not be allowed to run after that. After a president ends their presidency, either by losing an election or completing 2 terms, the character is demoted and given the role of <em><strong class="link">Former President</strong></em>. However, if they have never been elected President before, they will be reset and given the 
+            <span class="tooltip-right"><strong>Mayor</strong>
+                <span class="tooltiptext">
+                    <p>A <strong>Mayor</strong> is the elected head of a city, town, or municipality. The mayor oversees the local government and is responsible for implementing laws, managing city departments, and representing the city to other governmental entities.</p>
+                    <img src="https://i.pinimg.com/736x/6b/da/5a/6bda5a4623d15f0f8873676e7367e909.jpg" alt="Sumber Daya Alam">
+                </span>
+            </span> modifier option.</span>
+        <hr><br><br>
+
+        <h3><strong class="link" id="1.3">Daily Schedule</strong></h3>
+        <hr>
+        <p>As President, your day is divided into five key sessions:</p>
+        <ol>
+            <li>
+                <span>
+                    <span class="tooltip-right" id="1.4"><strong>White House Meeting</strong>
+                        <span class="tooltiptext">
+                            <p>A <strong>White House Meeting</strong> is a session where the Vice President, President, and key members of the White House Staff gather to discuss the agenda for the day. 
+                                This meeting usually takes place in the Oval Office and covers important topics such as national issues, proposed legislation, and other matters related to governance. 
+                                It provides an opportunity for the President and Vice President to align on priorities, discuss pressing concerns, and plan the day's activities, setting the tone for the administration's work and response to various political or national events.</p>
+                            <img src="https://i.pinimg.com/736x/f0/26/68/f02668024f48b06e1ff9636eac56db43.jpg" alt="Sumber Daya Alam">
+                        </span>
+                    </span><br />During the White House Meeting, you will meet with the 
+                    <a class="tooltip text-image" style="text-decoration: underline;" href="President_USA.html">                
+                        <strong>Vice President</strong>
+                        <span class="tooltiptext">
+                            <p>The <strong>Vice President of the United States</strong> is the second-highest official in the government. They preside over the Senate, casting tie-breaking votes when needed, and support the President by advising, representing, and stepping in if the President cannot fulfill their duties.</p>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Seal_of_the_Vice_President_of_the_United_States.svg/1280px-Seal_of_the_Vice_President_of_the_United_States.svg.png" alt="Sumber Daya Alam">
+                        </span>
+                    </a> and <strong class="link">White House Staff</strong> to discuss the day ahead. Topics may include the National Issue, legislation, and other important matters. This meeting typically takes place in the Oval Office. <em>(H24-H1)</em></span>
+            </li><br>
+            <li>
+                <span>
+                    <span class="tooltip-right" id="1.5"><strong>Leadership Meeting </strong>
+                        <span class="tooltiptext">
+                            <p>A <strong>Leadership Meeting</strong> is a gathering where the Vice President, President, and key legislative leaders meet to discuss important political matters. 
+                                In the game, this meeting is typically held in the Roosevelt Room and includes the Speaker of the House, President Pro Tempore, White House Chief of Staff, and the Legislative Director. 
+                                The focus of the meeting is generally on legislative concerns, such as laws, bills, and issues affecting the overall functioning of the government. 
+                                It's a place to discuss strategies, share concerns, and plan collaborative actions to address political challenges.</p>
+                            <img src="https://i.pinimg.com/736x/13/d6/28/13d6288071d967d6e97ba23d270df40a.jpg" alt="Sumber Daya Alam">
+                        </span>
+                    </span>
+                    <br />The <strong class="link">Leadership Meeting</strong> is held in the Roosevelt Room and involves key figures such as the 
+                    <a class="tooltip-left" style="text-decoration: underline;" href="Speaker_Of_House.html"><strong>Speaker Of The House</strong>
+                        <span class="tooltiptext">
+                            <p>The <strong>Speaker of the House</strong> is the leader of the U.S. House of Representatives. They preside over sessions, set the legislative agenda, appoint committee members, and are second in line for the presidency after the Vice President. The Speaker is usually from the majority party and plays a key role in shaping national policy.</p>
+                            <img src="https://i.pinimg.com/736x/28/4f/77/284f77e9eb12c229e39ae01953675789.jpg" alt="Sumber Daya Alam">
+                        </span>
+                    </a> , 
+                    <a class="tooltip-right" style="text-decoration: underline;" href="Pro_Tempore_President.html"><strong>President Pro Tempore</strong>
+                        <span class="tooltiptext">
+                            <p>The <strong>President Pro Tempore</strong> is a senior member of the Senate, typically the longest-serving senator from the majority party. 
+                                In the absence of the Vice President, who is the official presiding officer of the Senate, the President Pro Tempore presides over Senate sessions. While their role is largely ceremonial, they hold significant respect and influence within the Senate. 
+                                In gameplay or roleplay, the President Pro Tempore may help manage Senate debates, oversee proceedings, and ensure legislative processes run smoothly. 
+                                They are also a key figure in discussions about laws, policies, and leadership decisions within the Senate.</p>
+                            <img src="https://i.pinimg.com/736x/51/87/c9/5187c9fbfc375c71fd93cf6b3d32ed4d.jpg" alt="Sumber Daya Alam">
+                        </span>
+                    </a>, <strong class="link">White House Chief of Staff</strong>, and <strong class="link">Legislative Director</strong>. This meeting usually focuses on legislative concerns and global statistics.</span>
+            </li><br>
+            <li>
+                <span>
+                    <span class="tooltip-right" id="1.6" ><strong>Cabinet Meeting</strong>
+                        <span class="tooltiptext">
+                            <p>A <strong>Cabinet Meeting</strong> is a session where the President, along with key members of the Cabinet, discusses and decides on national issues. 
+                                In the game, this meeting typically involves the five Secretaries (e.g., Secretary of Defense, Secretary of State), the White House Chief of Staff, and the National Security Adviser. 
+                                While the President holds the final decision-making power, the Cabinet members provide input on their respective areas, offering suggestions and advice. 
+                                These meetings are crucial for discussing policies and making decisions that impact the country&rsquo;s future.</p>
+                            <img src="https://i.pinimg.com/736x/7f/b9/64/7fb964c550a6589d43686b18f53f8899.jpg" alt="Sumber Daya Alam">
+                        </span>
+                    </span><br />The Cabinet Meeting centers on the National Issue. The five in-game Secretaries, along with the <strong class="link">White House Chief of Staff</strong> and <strong class="link">National Security Adviser</strong>, convene in the 
+                    <span class="tooltip-right"><strong>Cabinet Room</strong>
+                        <span class="tooltiptext">
+                            <p>The <strong>Cabinet Room</strong> is where the President meets with their Cabinet members, including Secretaries of various departments, to discuss important national issues and make key decisions. It's a central space for advising the President on policies and actions related to government functions and national security.</p>
+                            <img src="https://i.pinimg.com/736x/31/97/aa/3197aa285a9410ed575bd1b17ce37709.jpg" alt="Sumber Daya Alam">
+                        </span>
+                    </span>. While the President has the final say in votes, members are usually given a chance to voice their opinions before a decision is made.</span>
+            </li><br>
+            <li>
+                <span><strong class="link" id="1.7">Free Time</strong><br />This block of the day is open for the President, allowing you to <strong class="link">engage</strong> in any activity of your choice.</span>
+            </li><br>
+            <li>
+                <span>
+                    <span class="tooltip-right" id="1.8"><strong>Social Hour</strong>
+                        <span class="tooltiptext">
+                            <p>A <strong>Social Hour</strong> is a less formal session in the game, typically used for roleplaying and socializing with other players. 
+                                During this time, everyone in the game can gather in a relaxed environment, such as at the President's Gala or during the State of the Union Address. 
+                                It doesn't involve major decision-making or pressing political matters, but it allows players to interact, give speeches, and engage in discussions in a more casual setting. 
+                                It's an opportunity to build connections, share ideas, and enjoy the social aspect of the game.</p>
+                            <img src="https://i.pinimg.com/736x/fa/a6/f9/faa6f95bd1d018d94d92afe6eee76140.jpg" alt="Sumber Daya Alam">
+                        </span>
+                    </span>
+                    <br />Social Hour is a roleplay session involving everyone in the game. It can take the form of informal events like the President&rsquo;s Gala or the State of the Union Address. While not critical to decision-making, it provides an <strong class="link">opportunity to socialize</strong>, <strong class="link">give speeches</strong>, and <strong class="link">interact with other players</strong>.</span>
+            </li>
+        </ol>
+        <hr>
+
+        <br><br>
+        <h3><strong class="link" id="1.9">Powers and Duties</strong></h3>
+        <hr>
+        <span>Like other high-ranking roles, the President&rsquo;s day is divided into four sections: the <strong class="link">Office Period</strong>, the <strong class="link">Cabinet Period</strong>, and two <strong>social periods</strong>. Each day, the President is presented with an <strong class="link">issue</strong> to address. The President can chair meetings with the 
+            <strong class="link"></strong>Secretaries of Departments</strong> to discuss this issue and pass laws that benefit the nation. Each law passed impacts both the <strong class="link">President&rsquo;s approval ratings</strong> and the nation&rsquo;s <strong class="link">statistics</strong>. The President also has the ability to teleport to any department building to supervise the Secretaries.</p>
+        <span>The President can <strong class="link">lead daily events</strong> and, during the <strong class="link">Gala</strong> and <strong class="link">Inauguration</strong>, has the opportunity to address other players. On Day 3, the Gala event is replaced with a 
+            <span class="tooltip-right"><strong>debate</strong>
+                <span class="tooltiptext">
+                    <p>A <strong>debate</strong> is a formal discussion in which candidates, politicians, or public figures present and argue their viewpoints on various issues. In the context of a presidential election, debates allow candidates to showcase their policies, respond to questions, and critique their opponents.</p>
+                    <img src="https://i.pinimg.com/736x/eb/1c/56/eb1c56ac2baa725b18384ca60d9c8e2a.jpg" alt="Sumber Daya Alam">
+                </span>
+            </span>, and on Day 4, there are <strong class="link">party rallies</strong>.</span>
+        <span>Additionally, the President has the option to remove one cabinet minister per term. While this is not mandatory, if the President chooses to do so, the Secretary in question is removed from office, and the next most senior player in that department assumes control.</span>
+        <hr>
+
+        <br><br>
+        <h3><strong class="link" id="1.10">Impeachment</strong></h3>
+        <hr>
+        <span>If the 
+            <span class="tooltip-right"><strong>House of Representatives
+            </strong>
+                <span class="tooltiptext">
+                    <p>The <strong>House of Representatives</strong> is one of the two chambers of the U.S. Congress. It consists of members elected based on state population, making it the body that represents the people more proportionally. Its duties include proposing and passing legislation, initiating spending bills, and starting impeachment proceedings.</p>
+                    <img src="https://i.pinimg.com/736x/1b/b9/d0/1bb9d01d9eaf217d2826d5b4782707fd.jpg" alt="Sumber Daya Alam">
+                </span>
+            </span> deems the President <strong class="link">incompetent</strong>, a member of the House of Representatives or the <strong class="link">Speaker Of House</strong> can introduce a bill to <strong class="link">impeach the President</strong>. However, there is a <strong class="link">restriction</strong>: no member of the House of Representatives can introduce an impeachment bill on <strong class="link">the first day</strong>. Once the bill is under review by the House, each member can cast their vote as either &ldquo;<strong class="link">Aye</strong>,&rdquo; &ldquo;<strong class="link">Abstain</strong>,&rdquo; or &ldquo;<strong class="link">Nay</strong>.&rdquo;</p>
+        <span>If the bill passes the House of Representatives, the 
+            <span class="tooltip text-image" >                
+                <strong>Senate</strong>
+                <span class="tooltiptext">
+                    <p>The <strong>Senate</strong> is part of the U.S. Congress, with <strong>8 members (two per state)</strong>, ensuring equal state representation. It shares lawmaking duties with the House but has unique roles like confirming appointments, ratifying treaties, and conducting impeachment trials.</p>
+                    <img src="https://i.pinimg.com/736x/d8/45/85/d84585415f7ab472b05c6e91f4633c40.jpg" alt="Sumber Daya Alam">
+                </span>
+            </span> will then hold a trial to decide whether the President should be <strong class="link">impeached</strong> (fired) or not. If the President is impeached, the <strong class="link">Vice President</strong> will assume the office of President. If there is no Vice President, the <strong class="link">Speaker of the House (SotH)</strong> will become President instead.</p>
+        <hr>
+
+        <br><br>
+        <h4 class="link" id="1.11">Update History</h4>
+    <hr>
+    <ul>
+        <li>
+            <p><strong class="link">Initial Release (v1.0)</strong></p>
+            <ul>
+                <li>Added to the game</li>
+                <li>Presidents could only serve <strong class="link">one term</strong> before being forced to reset</li>
+                <li>Presidents are elected by securing more <strong class="link">interest groups</strong> to vote for them</li>
+                <li><strong class="link">Reputation</strong>, <strong class="link">polls</strong>, and <strong>statistics</strong> were added to influence the President's approval ratings</li>
+            </ul>
+        </li>
+        <li>
+            <p><strong class="link">Election Tracker (v1.2.0)</strong></p>
+            <ul>
+                <li>New <strong class="link">panel</strong> added to show current <strong class="link">Presidential candidates</strong></li>
+            </ul>
+        </li>
+        <li>
+            <p><strong class="link">Four More Years (v1.3)</strong></p>
+            <ul>
+                <li>Presidents can now run for <strong class="link">re-election</strong> to extend their term</li>
+                <li>The <strong class="link">approval ratings</strong> tab was revamped</li>
+            </ul>
+        </li>
+    </ul>
+    <hr>
+
+    </div>
+</div>
+
+
+                    
+<!-- End of Blog entries -->
+</div>
+
+<!-- About/Information menu -->
+<div class="w3-col l4 invisible44-box">
+
+  <!-- About Card -->
+  <div class="box-header2 w3-margin">President USA</div>
+  <div class=" invisible22-box w3-margin">
+  <div class="tab-navigation">
+    <div class="tab-item active" onclick="showTab('tab-icon')">Icon</div>
+    <div class="tab-item" onclick="showTab('tab-ingame')">In Game</div>
+</div>
+<div id="tab-icon" class=" tab-content active">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Seal_of_the_President_of_the_United_States.svg/800px-Seal_of_the_President_of_the_United_States.svg.png" alt="Chesapeake_Studios" >
+    <a style="text-decoration: underline;" class="link" href="https://en.wikipedia.org/wiki/President_of_the_United_States#/media/File:Seal_of_the_President_of_the_United_States.svg">
+        POTUS LOGO
+    </a>
+</div>
+<div id="tab-ingame" class=" tab-content">
+    <div class="w3-container ">
+        <img src="https://i.pinimg.com/736x/8e/63/60/8e6360de3654394314eaff6ed43348ac.jpg" alt="Chesapeake_Studios">
+</div>
+    </div>
+    <div class="w3-container ">
+                        <!-- Divider -->
+                        <div class="box-header2">Department</div>
+        <p>Executive Branch</p>
+        <div class="box-header2">Requirements</div>
+        <ul>
+            <li>Become a Presidential Candidate and win an election against an opponent by securing more votes on the electoral college.</li><br>
+            <li>Adittionally you may become President if the President leaves or is impeached and you are the next in line to the Presidency, which usually is the Vice President.</li>
+            </ul>
+            <div class="box-header2">Powers</div>
+            <ul>
+                <li>Pass or veto laws at a federal level and deal with issues</li>
+                <li>Select whoever you wish for cabinet positions</li>
+                <li>Organise cabinent meetings</li>
+                <li>Supervise departments and decisions</li>
+                <li>Other roleplay related issues</li>
+                </ul>
+                <div class="box-header2">Duties</div>
+                <ul>
+                    <li>Discuss issues with the cabinent to pass new laws</li>
+                    <li>Check up on departments to ensure they are passing the right laws</li>
+                    <li>Attend events (like the Gala or Innauguration Ball)</li>
+                    </ul>
+                    <div class="box-header2">Salary</div>
+                    <p>100$/day</p>
+        <br>
+      </div>
+</div>
+
+<hr>
+
+      <!-- Posts -->
+      <div class="w3-margin">
+        <div class="w3-container w3-padding w3-black">
+            <h4>Other Roles</h4>
+        </div>
+        <ul class="w3-ul w3-hoverable w3-black" id="component-list">
+            <!-- Randomized components will be inserted here -->
+        </ul>
+        <script>
+            const components = [
+                {
+                    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Seal_of_the_President_of_the_United_States.svg/800px-Seal_of_the_President_of_the_United_States.svg.png", 
+                    title: "President of the United States", 
+                    link: "President_USA.html",
+                    quotes: "True leadership is empowering others to rise to their potential, and guiding them to success.",
+                    description: "The highest office in the United States responsible for domestic and foreign policies.",
+                    tooltipImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Flag_of_the_President_of_the_United_States.svg/800px-Flag_of_the_President_of_the_United_States.svg.png" 
+                },
+                {
+                    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Seal_of_the_Vice_President_of_the_United_States.svg/800px-Seal_of_the_Vice_President_of_the_United_States.svg.png", 
+                    title: "Vice President", 
+                    link: "Vice_President_USA.html",
+                    quotes: "Standing by, prepared to lead with strength, wisdom, and compassion when the moment arrives.",
+                    description: "The Vice President assists the President and steps in as President if the latter is unable to perform duties.",
+                    tooltipImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Flag_of_the_Vice_President_of_the_United_States.svg/800px-Flag_of_the_Vice_President_of_the_United_States.svg.png" 
+                },
+                {
+                    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Flag_of_the_Speaker_of_the_United_States_House_of_Representatives.svg/800px-Flag_of_the_Speaker_of_the_United_States_House_of_Representatives.svg.png",
+                    title: "Speaker of the House",
+                    link: "Speaker_Of_House.html",
+                    quotes: "Shaping the course of our nation, creating laws that will echo through history.",
+                    description: "Leader of the House of Representatives responsible for overseeing sessions and setting legislative agendas.",
+                    tooltipImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Flag_of_the_Speaker_of_the_United_States_House_of_Representatives.svg/800px-Flag_of_the_Speaker_of_the_United_States_House_of_Representatives.svg.png"
+                },
+                {
+                    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/President_Pro_Tempore_US_Senate_Seal.svg/800px-President_Pro_Tempore_US_Senate_Seal.svg.png",
+                    title: "President Pro Tempore",
+                    link: "President_Pro_Tempore.html",
+                    quotes: "A guardian of tradition, ready to lead with integrity and courage in the Senate’s absence.",
+                    description: "A senior member of the Senate who temporarily assumes the duties of the Senate President in their absence.",
+                    tooltipImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/President_Pro_Tempore_US_Senate_Seal.svg/800px-President_Pro_Tempore_US_Senate_Seal.svg.png"
+                },
+                {
+                    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/US-WhiteHouse-Logo.svg/800px-US-WhiteHouse-Logo.svg.png",
+                    title: "White House Chief of Staff",
+                    quotes: "The force behind the scenes, turning vision into action, and making history happen.",
+                    description: "The head of the White House staff, managing the administrative functions and daily operations of the White House.",
+                    tooltipImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/US-WhiteHouse-Logo.svg/800px-US-WhiteHouse-Logo.svg.png"
+                },
+                {
+                    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Seal_of_the_Executive_Office_of_the_President_of_the_United_States_2014.svg/800px-Seal_of_the_Executive_Office_of_the_United_States_2014.svg.png",
+                    title: "White House Staff",
+                    quotes: "The backbone of the executive branch, managing day-to-day operations.",
+                    description: "Staff members working closely with the President and Vice President at the White House.",
+                    tooltipImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Flag_of_the_Executive_Office_of_the_President_of_the_United_States.svg/800px-Flag_of_the_Executive_Office_of_the_President_of_the_United_States.svg.png"
+                },
+                {
+                    image: "https://tr.rbxcdn.com/180DAY-5120d01ae1d7cd0d5f3358decb9dcac6/150/150/Image/Webp/noFilter",
+                    title: "Press Roles",
+                    quotes: "Weaving the truth into every story, shaping the narrative with clarity, honesty, and purpose.",
+                    description: "Roles related to media, including press secretaries who manage media relations and public communications.",
+                    tooltipImage: "https://tr.rbxcdn.com/180DAY-5120d01ae1d7cd0d5f3358decb9dcac6/150/150/Image/Webp/noFilter"
+                },
+                {
+                    image: "https://tr.rbxcdn.com/180DAY-3410ef96df94b586ac1f31db40e50297/420/420/Image/Png/noFilter",
+                    title: "Party Staff",
+                    quotes: "Driving economic prosperity, fostering trade that builds bridges to a brighter future.",
+                    description: "Staff working for political parties, supporting campaigns and political strategies.",
+                    tooltipImage: "https://tr.rbxcdn.com/180DAY-3410ef96df94b586ac1f31db40e50297/420/420/Image/Png/noFilter"
+                },
+                {
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Seal_of_the_United_States_Federal_Reserve_Board.svg/800px-Seal_of_the_United_States_Federal_Reserve_Board.svg.png",
+                    "title": "Federal Reserve",
+                    link: "Federal_Reserve.html",
+                    "quotes": "Controlling the flow of money, stabilizing the economy.",
+                    "description": "The central banking system of the United States, responsible for controlling the money supply, regulating financial institutions, and ensuring economic stability.",
+                    "tooltipImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Flag_of_the_United_States_Federal_Reserve.svg/800px-Flag_of_the_United_States_Federal_Reserve.svg.png"
+                },
+                {
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/US_Department_of_Agriculture_seal.svg/800px-US_Department_of_Agriculture_seal.svg.png",
+                    "title": "Department of Agriculture (USA)",
+                    "quotes": "Farming policies that shape the nation’s food security.",
+                    "description": "The Secretary of Agriculture and staff responsible for agricultural policies, food systems, and natural resources.",
+                    "tooltipImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Flag_of_the_United_States_Department_of_Agriculture.svg/800px-Flag_of_the_United_States_Department_of_Agriculture.svg.png"
+                },
+                {
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Seal_of_the_United_States_Department_of_Commerce.svg/800px-Seal_of_the_United_States_Department_of_Commerce.svg.png",
+                    "title": "Department of Commerce (USA)",
+                    "quotes": "Promoting U.S. trade and boosting economic growth.",
+                    "description": "The Secretary of Commerce who manages economic policies, international trade, and industrial development.",
+                    "tooltipImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Flag_of_the_United_States_Department_of_Commerce.svg/800px-Flag_of_the_United_States_Department_of_Commerce.svg.png"
+                },
+                {
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Seal_of_the_United_States_Department_of_Defense.svg/800px-Seal_of_the_United_States_Department_of_Defense.svg.png",
+                    "title": "Department of Defense (USA)",
+                    "quotes": "Ensuring national security and defense readiness.",
+                    "description": "The Secretary of Defense and Joint Chiefs of Staff who are responsible for defense policies and military operations.",
+                    "tooltipImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Seal_of_the_United_States_Department_of_Defense.svg/800px-Seal_of_the_United_States_Department_of_Defense.svg.png"
+                },
+                {
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Seal_of_the_United_States_Department_of_Education.svg/800px-Seal_of_the_United_States_Department_of_Education.svg.png",
+                    "title": "Department of Education (USA)",
+                    "quotes": "Shaping the future through education policies.",
+                    "description": "The Secretary of Education who manages educational policies and promotes access to education for citizens.",
+                    "tooltipImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Seal_of_the_United_States_Department_of_Education.svg/800px-Seal_of_the_United_States_Department_of_Education.svg.png"
+                },
+                {
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Seal_of_the_United_States_Department_of_Homeland_Security.svg/800px-Seal_of_the_United_States_Department_of_Homeland_Security.svg.png",
+                    "title": "Department of Homeland Security (USA)",
+                    "quotes": "Protecting the nation’s safety and resilience.",
+                    "description": "The Secretary of Homeland Security who oversees national security policies and protection of U.S. citizens.",
+                    "tooltipImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Flag_of_the_United_States_Department_of_Homeland_Security.svg/800px-Flag_of_the_United_States_Department_of_Homeland_Security.svg.png"
+                },
+                {
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Seal_of_the_United_States_Department_of_Justice.svg/800px-Seal_of_the_United_States_Department_of_Justice.svg.png",
+                    "title": "Department of Justice (USA)",
+                    "quotes": "Upholding the law for justice and fairness.",
+                    "description": "The Attorney General and staff who oversee law enforcement, the legal system, and federal policies.",
+                    "tooltipImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Flag_of_the_United_States_Department_of_Justice.svg/800px-Flag_of_the_United_States_Department_of_Justice.svg.png"
+                },
+                {
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/U.S._Department_of_State_official_seal.svg/800px-U.S._Department_of_State_official_seal.svg.png",
+                    "title": "Department of State (USA)",
+                    "quotes": "Guiding the nation’s foreign relations and diplomacy.",
+                    "description": "The Secretary of State responsible for foreign policies and international relations.",
+                    "tooltipImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Flag_of_the_United_States_Department_of_State.svg/800px-Flag_of_the_United_States_Department_of_State.svg.png"
+                },
+                {
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Seal_of_the_United_States_Department_of_the_Interior.svg/800px-Seal_of_the_United_States_Department_of_the_Interior.svg.png",
+                    "title": "Department of the Interior (USA)",
+                    "quotes": "Protecting the nation’s natural resources and lands.",
+                    "description": "The Secretary of the Interior who manages policies regarding public lands, natural resources, and the environment.",
+                    "tooltipImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Flag_of_the_United_States_Department_of_the_Interior.svg/800px-Flag_of_the_United_States_Department_of_the_Interior.svg.png"
+                },
+                {
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Seal_of_the_United_States_Department_of_the_Treasury.svg/800px-Seal_of_the_United_States_Department_of_the_Treasury.svg.png",
+                    "title": "Department of the Treasury (USA)",
+                    "quotes": "Managing finances and shaping fiscal policies.",
+                    "description": "The Secretary of the Treasury responsible for managing fiscal policy, national finances, and economic planning.",
+                    "tooltipImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Flag_of_the_United_States_Department_of_the_Treasury.png/800px-Flag_of_the_United_States_Department_of_the_Treasury.png"
+                },
+                {
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Seal_of_the_United_States_Senate.svg/800px-Seal_of_the_United_States_Senate.svg.png",
+                    "title": "Senate",
+                    "quotes": "Where the nation’s laws are debated and decided.",
+                    "description": "Senators who participate in creating laws, overseeing the executive branch, and making important national decisions.",
+                    "tooltipImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Flag_of_the_United_States_Senate.svg/800px-Flag_of_the_United_States_Senate.svg.png"
+                },
+                {
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Seal_of_the_United_States_House_of_Representatives.svg/800px-Seal_of_the_United_States_House_of_Representatives.svg.png",
+                    "title": "The House of Representatives",
+                    "quotes": "Representing the people, creating the nation’s laws.",
+                    "description": "Members of the House of Representatives who work alongside the Senate to create laws and represent the citizens of the U.S.",
+                    "tooltipImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Flag_of_the_United_States_House_of_Representatives.svg/800px-Flag_of_the_United_States_House_of_Representatives.svg.png"
+                },
+                {
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Greater_coat_of_arms_of_the_United_States.svg/800px-Greater_coat_of_arms_of_the_United_States.svg.png",
+                    "title": "Executive Branch",
+                    "quotes": "The driving force behind government policies and actions.",
+                    "description": "The branch led by the President, Vice President, and Cabinet, responsible for implementing laws and policies.",
+                    "tooltipImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Greater_coat_of_arms_of_the_United_States.svg/800px-Greater_coat_of_arms_of_the_United_States.svg.png"
+                },
+                {
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Great_Seal_of_the_United_States_%28obverse%29.svg/800px-Great_Seal_of_the_United_States_%28obverse%29.svg.png",
+                    "title": "Cabinet",
+                    "quotes": "Advising the President and shaping national policy.",
+                    "description": "Secretaries from all executive departments who assist the President in shaping policies and managing the government.",
+                    "tooltipImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Great_Seal_of_the_United_States_%28obverse%29.svg/800px-Great_Seal_of_the_United_States_%28obverse%29.svg.png"
+                }
+            ];
+            
+        // Helper Function to Shuffle and Select Random Components
+        function getRandomComponents() {
+            return components.sort(() => 0.5 - Math.random()).slice(0, 4);
+        }
+
+        // Function to Display Random Components
+        function displayRandomComponents() {
+            const selectedComponents = getRandomComponents();
+            const componentList = document.getElementById('component-list');
+
+            componentList.innerHTML = '';  // Clear existing components
+
+            selectedComponents.forEach(component => {
+                const li = document.createElement('li');
+                li.classList.add('w3-padding-16');
+                li.innerHTML = `
+                    <a href="${component.link}" style="text-decoration: none;"> <!-- Menambahkan link di sini -->
+                        <img src="${component.image}" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                        <span class="tooltip text-image" style="text-decoration: underline;">
+                            ${component.title}
+                            <span class="tooltiptext">
+                                <p>${component.description}</p>
+                                ${component.tooltipImage ? `<img src="${component.tooltipImage}" alt="Additional Image" style="width: 100%;">` : ''}
+                            </span>
+                        </span>
+                        <br>
+                        <span>${component.quotes}</span>
+                    </a>
+                `;
+
+                componentList.appendChild(li);  // Append each component as a list item
+            });
+        }
+
+        // Ensure that the script runs once the page has fully loaded
+        window.onload = function() {
+            displayRandomComponents();  // Menjalankan fungsi setelah halaman dimuat
+        };
+            </script>
+</div>
+<hr>
+
+<div class="w3-margin">
+    <div class="w3-container w3-padding w3-black">
+        <h4>States</h4>
+    </div>
+    <div class="custom-slider-container state-slider-container">
+        <img src="https://i.pinimg.com/736x/df/e8/37/dfe837643978ce7f46c87e07c2cef40d.jpg" alt="New England 1" class="custom-active">
+        <img src="https://i.pinimg.com/736x/28/82/1c/28821c8125c6458a0ac4248f558cb1a6.jpg" alt="Navajo 2">
+        <img src="https://i.pinimg.com/736x/e6/a3/e8/e6a3e8aef07107f30b6f8f1d1bf3f68a.jpg" alt="Carolina 3">
+        <img src="https://i.pinimg.com/736x/e8/69/50/e8695061a91d7b38948706e0bdced478.jpg" alt="Cascadia 4">
+        <img src="https://i.pinimg.com/736x/45/1d/e0/451de043e4be7b1c58b30f1b1c0ab974.jpg" alt="Appalachia 5">
+        <img src="https://i.pinimg.com/736x/fb/0c/5e/fb0c5ed9b976ef5ebfe53f41bd4e2365.jpg" alt="Superior 6">
+        <img src="https://i.pinimg.com/736x/3d/5f/9d/3d5f9d2d5ae73aade7fa3ec5f12c46cd.jpg" alt="Superior 7">
+        <img src="https://i.pinimg.com/736x/b1/2b/02/b12b021adaef0f77462ce668d39a86b6.jpg" alt="Orleans 8">                    
+        <div class="custom-slider-text custom-active">Commonwealth of New England</div>
+        <div class="custom-slider-text">The Great State of Navajo</div>
+        <div class="custom-slider-text">The Great State of Carolina</div>
+        <div class="custom-slider-text">The Great State of Cascadia</div>
+        <div class="custom-slider-text">The Great State of Appalachia</div>
+        <div class="custom-slider-text">State of Superior</div>
+        <div class="custom-slider-text">The Great State of Dakota</div>
+        <div class="custom-slider-text">State of Orleans</div>
+    </div>
+</div>
+<hr>
+
+
+        <div class="w3-margin">
+            <div class="w3-container w3-padding w3-black">
+        <h4>SENATE AND REPRESENTATIVE BILLS</h4>
+        </div>
+        <div class="custom-slider-container bills-slider-container">
+        <img src="https://i.pinimg.com/736x/7f/82/22/7f822280549442ef35293a70e4c87f4d.jpg" alt="BILLS REP1" class="custom-active">
+        <img src="https://i.pinimg.com/736x/2b/47/40/2b4740fd314d4d3ec6f3e8736fe20071.jpg" alt="BILLS REP2">
+        <img src="https://i.pinimg.com/736x/fa/36/71/fa3671a5efa32856f9527b2b6455a322.jpg" alt="BILLS REP3">
+        <img src="https://i.pinimg.com/736x/47/e5/b6/47e5b6ef0e7ab8c130283b72b5e37010.jpg" alt="BILLS REP CONCURRENT RESOLUTION4">
+        <img src="https://i.pinimg.com/736x/75/98/fa/7598fa1bb2d4bbda09538bfe59f82164.jpg" alt="BILLS REP SIMPLE RESOLUTION5">
+        <img src="https://i.pinimg.com/736x/23/15/23/231523147aea4ce2810cdfa4c12afca8.jpg" alt="BILLS SENATE1">
+        <img src="https://i.pinimg.com/736x/95/b0/b3/95b0b3c73c4777516d01768f5720dad5.jpg" alt="BILLS SENATE2">
+        <img src="https://i.pinimg.com/736x/b1/a7/da/b1a7da32a7a619bb677ad3ea729b4382.jpg" alt="BILLS SENATE CONCURRENT RESOLUTION3">
+        <img src="https://i.pinimg.com/736x/21/46/53/2146537d2e79d5017834275db7eade89.jpg" alt="BILLS SENATE SIMPLE RESOLUTION4">                      
+        </div>
+        </div>
+        <hr>
+
+
+<div class="w3-margin">
+    <div class="w3-containerss w3-padding w3-black">
+      <h4>Join Us</h4>
+    </div>
+    <div class="w3-containerss w3-xlarge w3-padding">
+      <a href="https://discord.com/invite/oathofoffice" target="_blank">
+        <i class="fab fa-discord w3-hover-opacity"></i>
+      </a>
+      <a href="https://x.com/jackjenningsdev" target="_blank">
+        <i class="fab fa-twitter w3-hover-opacity"></i>
+      </a>
+      <a href="https://www.roblox.com/communities/17005184/Chesapeake-Studios#!/about" target="_blank">
+        <i class="fas fa-users w3-hover-opacity"></i>
+      </a>
+    </div>
+  </div>
+
+
+    </div>
+
+
+<!-- END GRID -->
+</div>
+
+<!-- END w3-content -->
+</div>
+
+<!-- Footer. This section contains an ad for W3Schools Spaces. You can leave it to support us. -->
+<footer class="w3-center">
+    <svg class="wave-animation" viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" overflow="hidden" shape-rendering="auto">
+        <defs>
+          <path id="wave" d="M 0 2000 0 500 Q 120 420 300 500 t 300 0 300 0 300 0 300 0 300 0  v700 z" />
+          <path id="wave-path" d="M -600 0 0 0" />
+        </defs>
+        <g>
+          <!-- Layer 1: Transparansi tinggi -->
+          <use xlink:href="#wave" x="-100" y="-200" fill="rgba(0, 0, 0, 0.2)">
+            <animateMotion dur="30s" repeatCount="indefinite">
+              <mpath xlink:href="#wave-path" />
+            </animateMotion>
+          </use>
+          <!-- Layer 2: Transparansi sedang -->
+          <use xlink:href="#wave" x="0" y="-180" fill="rgba(0, 0, 0, 0.4)">
+            <animateMotion dur="15s" repeatCount="indefinite">
+              <mpath xlink:href="#wave-path" />
+            </animateMotion>
+          </use>
+          <!-- Layer 3: Transparansi rendah -->
+          <use xlink:href="#wave" x="0" y="-280" fill="rgba(0, 0, 0, 0.6)">
+            <animateMotion dur="50s" repeatCount="indefinite">
+              <mpath xlink:href="#wave-path" />
+            </animateMotion>
+          </use>
+        </g>
+      </svg>
+      
+
+            
+
+            <div class="footer-content box-sizing-border-box">
+                <div class="w3-content w3-container w3-padding-64" id="contact">
+                    <p class="w3-center"><em>I'd love your feedback!</em></p>
+                
+                    <div class="w3-col m4 w3-container">
+                        <img id="toggleImage" src="https://media1.tenor.com/m/bmJz2once4cAAAAd/lookback-look-back.gif" class="w3-image w3-round image-transition" style="width:100%">
+                    </div>
+                
+                    <div class="w3-col m8 w3-panel">
+                        <!-- Form untuk kontak -->
+                        <form id="contact-form">
+                            <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+                                <div class="w3-half">
+                                    <input class="w3-input w3-border" type="text" placeholder="Name" required name="from_name" autocomplete="off">
+                                </div>
+                                <div class="w3-half">
+                                    <input class="w3-input w3-border" type="email" placeholder="Email" required name="reply_to" autocomplete="off">
+                                </div>
+                            </div>
+                            <textarea class="w3-input w3-border" placeholder="Message" required name="message" autocomplete="off"></textarea>
+                            <button class="w3-button w3-black w3-right w3-section" type="submit">
+                                <i class="fa fa-paper-plane"></i> SEND MESSAGE
+                            </button>
+                        </form>
+                    </div>
+                </div>
+              <a href="#home" class="w3-button w3-light-grey">
+                <i class="fa fa-arrow-up w3-margin-right"></i> To the top
+              </a>
+              <br><br>
+              <p class="w3-small">This website was made with <span><a href="https://replit.com/~" style="text-decoration: inline;" class="link22">Replit Space</a></span>. Copyright 2024 - Almesta Ammar -</p>
+            </div>
+</footer>
+
+<!-- Tambahkan EmailJS dan script -->
+<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+    (function () {
+        emailjs.init('ijU1xXdBLKNhQdoP0'); // Ganti dengan User ID dari EmailJS
+    })();
+
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Mencegah refresh halaman saat submit
+
+        // Konfigurasi EmailJS
+        const serviceID = 'service_m09oqfl'; // Service ID Anda
+        const templateID = 'template_xa6h468'; // Template ID Anda
+
+        // Kirim email melalui EmailJS
+        emailjs.sendForm(serviceID, templateID, this)
+            .then(() => {
+                alert('Message sent successfully.');
+            }, (err) => {
+                console.error('Pesan gagal dikirim:', err);
+                alert('Dawg, there was an error sending message.');
+            });
+    });
+</script>
+    <script>
+        // Modal Image Gallery
+        function onClick(element) {
+            document.getElementById("img01").src = element.src;
+            document.getElementById("modal01").style.display = "block";
+            var captionText = document.getElementById("caption");
+            captionText.innerHTML = element.alt;
+        }
+
+        // Change style of navbar on scroll
+        window.onscroll = function () { myFunction() };
+        function myFunction() {
+            var navbar = document.getElementById("myNavbar");
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
+            } else {
+                navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
+            }
+        }
+
+        // Used to toggle the menu on small screens when clicking on the menu button
+        function toggleFunction() {
+            var x = document.getElementById("navDemo");
+            if (x.className.indexOf("w3-show") == -1) {
+                x.className += " w3-show";
+            } else {
+                x.className = x.className.replace(" w3-show", "");
+            }
+        }
+    </script>
+
+    <script>
+        // JavaScript untuk Slider
+        const images = document.querySelectorAll('.slider-container img');
+        let currentIndex = 0;
+
+        function changeImage() {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].classList.add('active');
+        }
+
+        // Ubah gambar setiap 3 detik
+        setInterval(changeImage, 3000);
+    </script>
+
+<script>
+    const suggestions = [
+        { name: "President of the United States", url: "President_USA.html" },
+        { name: "Vice President", url: "Vice_President_USA.html" },
+        { name: "Speaker of the House", url: "Speaker_Of_House.html" },
+        { name: "President Pro Tempore", url: "President_Pro_Tempore.html" },
+        { name: "White House Chief of Staff", url: "WHite_House_Chief_Of_Staff.html" },
+        { name: "White House Staff", url: "WhiteHouse_Staff.html" },
+        { name: "Press Roles", url: "Press_Roles.html" },
+        { name: "Party Staff", url: "Party_Staff.html" },
+        { name: "Federal Reserve", url: "Federal_Reserve.html" },
+        { name: "Department of Agriculture (USA)", url: "Dept_Agriculture.html" },
+        { name: "Department of Commerce (USA)", url: "Dept_Commerce.html" },
+        { name: "Department of Defense (USA)", url: "Dept_Defense.html" },
+        { name: "Department of Education (USA)", url: "Dept_Education.html" },
+        { name: "Department of Homeland Security (USA)", url: "Dept_Homeland_Security.html" },
+        { name: "Department of Justice (USA)", url: "Dept_Justice.html" },
+        { name: "Department of State (USA)", url: "Dept_State.html" },
+        { name: "Department of the Interior (USA)", url: "Dept_Interior.html" },
+        { name: "Department of the Treasury (USA)", url: "Dept_Treasury.html" },
+        { name: "Senate", url: "Senate.html" },
+        { name: "The House of Representatives", url: "House_of_Representatives.html" },
+        { name: "Executive Branch", url: "Executive_Branch.html" },
+        { name: "Cabinet", url: "Cabinet.html" },
+        { name: "National Security Advisor", url: "National_Security_Advisor.html" },
+        { name: "Press Secretary", url: "Press_Secretary.html" },
+        { name: "State of Senate", url: "State_of_Senate.html" },
+        { name: "Secretary Of Defense", url: "SECDEF.html" },
+        { name: "Secretary Of State", url: "SECSTATE.html" }
+    ];
+
+    // Simpan rekomendasi random di variabel global saat halaman dimuat
+    const randomSuggestions = suggestions
+        .sort(() => Math.random() - 0.5) // Acak array
+        .slice(0, 5); // Ambil 5 elemen pertama
+
+    // Fungsi untuk memfilter atau menampilkan hasil dropdown
+    function filterItems(showRandom = false) {
+        const input = document.getElementById("searchInput").value.toLowerCase();
+        const dropdown = document.getElementById("dropdown");
+        dropdown.innerHTML = ""; // Kosongkan dropdown sebelumnya
+        dropdown.style.display = "none"; // Sembunyikan dropdown awalnya
+
+        let filteredItems;
+
+        if (showRandom) {
+            // Gunakan rekomendasi random yang sudah di-generate saat halaman dimuat
+            filteredItems = randomSuggestions;
+        } else if (input) {
+            // Filter berdasarkan input (substring match)
+            filteredItems = suggestions.filter(item =>
+                item.name.toLowerCase().includes(input)
+            ).sort((a, b) => {
+                const aStarts = a.name.toLowerCase().startsWith(input);
+                const bStarts = b.name.toLowerCase().startsWith(input);
+                return bStarts - aStarts; // Hasil dengan awalan input ditampilkan lebih dulu
+            });
+        }
+
+        if (filteredItems && filteredItems.length > 0) {
+            filteredItems.forEach(item => {
+                const li = document.createElement("li");
+                li.textContent = item.name;
+                li.style.cursor = "pointer";
+                li.style.padding = "5px";
+                li.onclick = () => {
+                    window.location.href = item.url; // Navigasi ke URL
+                };
+                dropdown.appendChild(li);
+            });
+            dropdown.style.display = "block"; // Tampilkan dropdown jika ada hasil
+        }
+    }
+
+    // Fungsi untuk navigasi langsung dari input
+    function directSearch() {
+        const input = document.getElementById("searchInput").value.toLowerCase().trim();
+        const match = suggestions.find(item =>
+            item.name.toLowerCase().includes(input) // Cocokkan substring pada nama
+        );
+
+        if (match) {
+            // Hanya navigasi jika ada pencocokan yang valid
+            window.location.href = match.url; // Navigasi ke URL yang cocok
+        } else {
+            // Jika tidak ditemukan, hanya tampilkan notifikasi tanpa navigasi
+            alert("What the heck is that?"); // Notifikasi pengguna
+        }
+    }
+
+    // Event listener untuk input pada search bar
+    document.getElementById("searchInput").onfocus = () => {
+        filterItems(true); // Tampilkan daftar random saat search bar diklik
+    };
+
+    document.getElementById("searchInput").onkeyup = (event) => {
+        filterItems(); // Filter berdasarkan input pengguna
+
+        if (event.key === "Enter") {
+            // Panggil directSearch jika Enter ditekan
+            directSearch(); 
+        }
+    };
+
+    // Event listener untuk menyembunyikan dropdown saat klik di luar
+    document.addEventListener("click", (event) => {
+        const dropdown = document.getElementById("dropdown");
+        const searchInput = document.getElementById("searchInput");
+
+        if (!dropdown.contains(event.target) && !searchInput.contains(event.target)) {
+            dropdown.style.display = "none"; // Sembunyikan dropdown
+        }
+    });
+</script>
+
+
+
+
+    <script>
+        const sidebar = document.getElementById("sidebar");
+        const overlay = document.getElementById("overlay");
+
+        // Toggle Sidebar
+        function toggleSidebar() {
+            sidebar.classList.toggle("open");
+            overlay.classList.toggle("show");
+        }
+    </script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // For the State slider
+        let currentIndexState = 0;
+        const imagesState = document.querySelectorAll('.state-slider-container img');
+        const textsState = document.querySelectorAll('.state-slider-container .custom-slider-text');
+        const totalSlidesState = imagesState.length;
+
+        function showNextSlideState() {
+            // Remove current slide
+            imagesState[currentIndexState].classList.remove('custom-active');
+            textsState[currentIndexState].classList.remove('custom-active');
+
+            // Move to the next slide
+            currentIndexState = (currentIndexState + 1) % totalSlidesState;
+
+            // Show new slide
+            imagesState[currentIndexState].classList.add('custom-active');
+            textsState[currentIndexState].classList.add('custom-active');
+        }
+
+        // Run the function for the State slider every 3 seconds
+        setInterval(showNextSlideState, 3000);
+
+        // For the Senate and Representative Bills slider
+        let currentIndexBills = 0;
+        const imagesBills = document.querySelectorAll('.bills-slider-container img');
+        const totalSlidesBills = imagesBills.length;
+
+        function showNextSlideBills() {
+            // Remove current slide
+            imagesBills[currentIndexBills].classList.remove('custom-active');
+
+            // Move to the next slide
+            currentIndexBills = (currentIndexBills + 1) % totalSlidesBills;
+
+            // Show new slide
+            imagesBills[currentIndexBills].classList.add('custom-active');
+        }
+
+        // Run the function for the Senate and Representative Bills slider every 3 seconds
+        setInterval(showNextSlideBills, 3000);
+    });
+</script>
+
+
+        <!-- CanvasJS Script -->
+    <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+
+    <script>
+        // Fungsi untuk mengganti tab aktif
+        function showTab(tabId) {
+            // Sembunyikan semua konten
+            const allContents = document.querySelectorAll('.tab-content');
+            allContents.forEach(content => content.classList.remove('active'));
+
+            // Hapus status aktif pada semua tab
+            const allTabs = document.querySelectorAll('.tab-item');
+            allTabs.forEach(tab => tab.classList.remove('active'));
+
+            // Tampilkan konten yang sesuai dan tandai tab aktif
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+
+<script>
+    /** A percentage of the screen to use in each grid, should be a fraction of 1 */
+const STARS_GRID_SIZE = 1 / 4
+/** Lower is more dense */
+const STARS_DENSITY = 14
+
+const METEOR_SPEED = 0.003  // Kecepatan meteor yang lebih lambat (lebih kecil daripada sebelumnya)
+const METEOR_MAX_FRAMES = 1000
+const METEOR_MAX_LIFE = 5000
+const METEOR_SPAWN_INTERVAL = 3000 // Waktu lebih lama untuk muncul meteor berikutnya (3000ms atau 3 detik)
+
+let activeMeteors = 0
+const MAX_METEORS = 4
+
+/**
+ * Helper functions
+ */
+function rescale(value, currentMin, currentMax, newMin, newMax) {
+  const percentage = (value - currentMin) / (currentMax - currentMin)
+  return percentage * (newMax - newMin) + newMin
+}
+
+function random(min, max) {
+  const randomNumber = Math.random() * (max - min + 1) + min
+
+  if (!Number.isInteger(min) || !Number.isInteger(max)) {
+    return randomNumber
+  } else {
+    return Math.floor(randomNumber)
+  }
+}
+
+function debounce(func, wait, immediate) {
+    let timeout
+
+    return function(...args) {
+        let context = this
+        clearTimeout(timeout)
+    
+        timeout = setTimeout(function() {
+            timeout = null
+            if (!immediate) func.apply(context, args)
+        }, wait)
+    
+        if (immediate && !timeout) func.apply(context, args)
+    }
+}
+
+/**
+ * Pick random coordinates on the screen
+ */
+function pickRandomCoordinateOnScreen(xMin = 0, xMax = 1, yMin = 0, yMax = 1) {
+  const maxX = window.innerWidth
+  const maxY = window.innerHeight
+
+  const x = rescale(random(0, maxX), 0, maxX, xMin * maxX, xMax * maxX)
+  const y = rescale(random(0, maxY), 0, maxY, yMin * maxY, yMax * maxY)
+
+  return { x, y }
+}
+
+/**
+ * Meteor class
+ */
+class Meteor {
+  constructor(x, y, speed) {
+    this.pos = { x, y }
+    const velScale = Math.min(window.innerWidth, window.innerHeight)
+    this.vel = { x: -speed * velScale, y: speed * velScale }
+    this.opacity = 1
+    this.scale = random(0.5, 1)
+
+    this.created = Date.now()
+
+    this.element = document.createElement('div')
+    this.element.classList.add('meteor')
+    document.body.appendChild(this.element)
+
+    activeMeteors++
+  }
+
+  update() {
+    this.pos.x += this.vel.x * this.scale
+    this.pos.y += this.vel.y * this.scale
+    this.updateElementStyle()
+  }
+
+  updateElementStyle() {
+    this.element.style = `
+      top: ${this.pos.y}px;
+      left: ${this.pos.x}px;
+      opacity: ${this.opacity};
+      transform: rotate(-45deg) scale(${this.scale});
+    `
+  }
+
+  cleanup() {
+    this.element.remove()
+    activeMeteors--
+  }
+}
+
+/**
+ * Stars class
+ */
+class Stars {
+  constructor(gridSize = STARS_GRID_SIZE, density = STARS_DENSITY) {
+    this.gridSize = gridSize
+    this.density = density
+
+    this.element = document.createElement('div')
+    this.element.classList.add('stars')
+    document.body.appendChild(this.element)
+
+    this.update = debounce(this.update.bind(this), 500)
+    this.update()
+    window.addEventListener('resize', this.update)
+  }
+
+  stars = []
+
+  update() {  
+    const translations = []
+
+    const w = window.screen.width
+    const h = window.screen.height
+    const count = Math.floor(Math.sqrt(w * h) / this.density * this.gridSize * this.gridSize)
+
+    for (let x = 0; x < 1; x += this.gridSize) {
+      for (let y = 0; y < 1; y += this.gridSize) {
+        for (let i = 0; i < count; i++) {
+          const xMax = x + this.gridSize
+          const yMax = y + this.gridSize
+          const coordinate = pickRandomCoordinateOnScreen()
+          translations.push(`${coordinate.x}px ${coordinate.y}px`)
+        }
+      }
+    }
+
+    this.element.style = `
+      box-shadow: ${translations
+        .map((x) => `rgb(255, 255, 255) ${x}`)
+        .join(', ')}
+    `
+  }
+
+  cleanup() {
+    window.removeEventListener('resize', this.update)
+    this.element.remove()
+  }
+}
+
+/**
+ * Function to spawn a meteor
+ */
+function spawnMeteor() {
+  if (activeMeteors >= MAX_METEORS) {
+    return // If there are already 2 meteors, don't spawn more
+  }
+
+  const startPoint1 = pickRandomCoordinateOnScreen(0.1, 1.5, -0.5, -0.25)
+  const meteor1 = new Meteor(startPoint1.x, startPoint1.y, METEOR_SPEED)
+
+  const startPoint2 = pickRandomCoordinateOnScreen(0.1, 1.5, -0.5, -0.25)
+  const meteor2 = new Meteor(startPoint2.x, startPoint2.y, METEOR_SPEED)
+
+  let frame = 0
+  function updateMeteors() {
+    meteor1.update()
+    meteor2.update()
+
+    // Periksa apakah meteor sudah melewati batas
+    const isWithinScreen1 = meteor1.pos.x > -(window.innerWidth / 2) && meteor1.pos.y < (window.innerHeight * 2)
+    const isWithinScreen2 = meteor2.pos.x > -(window.innerWidth / 2) && meteor2.pos.y < (window.innerHeight * 2)
+
+    // Menjaga agar meteor tetap ada hingga mencapai METEOR_MAX_FRAMES
+    if (frame < METEOR_MAX_FRAMES) {
+      frame++
+      requestAnimationFrame(updateMeteors)
+    } else {
+      // Meteor hilang setelah METEOR_MAX_FRAMES tercapai
+      meteor1.cleanup()
+      meteor2.cleanup()
+      spawnMeteor()  // Spawn meteor baru setelah yang lama hilang
+    }
+  }
+
+  updateMeteors()
+}
+
+/**
+ * Main
+ */
+const stars = new Stars()
+spawnMeteor()  // Spawn dua meteor pertama
+</script>
+
+<script>
+    // Modal Image Gallery
+    function onClick(element) {
+      document.getElementById("img01").src = element.src;
+      document.getElementById("modal01").style.display = "block";
+      var captionText = document.getElementById("caption");
+      captionText.innerHTML = element.alt;
+    }
+    
+    
+    // Toggle between showing and hiding the sidebar when clicking the menu icon
+    var mySidebar = document.getElementById("mySidebar");
+    
+    function w3_open() {
+      if (mySidebar.style.display === 'block') {
+        mySidebar.style.display = 'none';
+      } else {
+        mySidebar.style.display = 'block';
+      }
+    }
+    
+    // Close the sidebar with the close button
+    function w3_close() {
+        mySidebar.style.display = "none";
+    }
+    </script>
+
+</body>
+
+</html>
